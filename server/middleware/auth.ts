@@ -1,5 +1,4 @@
 import type { Session, UserLucia } from "../database/schema/auth";
-import { validateSessionToken, verifyRequestOrigin } from "../utils/lucia";
 
 export default defineEventHandler(async (event) => {
   if (event.method !== "GET") {

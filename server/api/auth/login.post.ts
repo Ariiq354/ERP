@@ -1,6 +1,5 @@
 import { verify } from "@node-rs/argon2";
 import { z } from "zod";
-import { extendSession } from "~~/server/utils/data-access/session";
 
 const loginSchema = z
   .object({
