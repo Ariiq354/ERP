@@ -13,4 +13,9 @@ export default defineNuxtConfig({
         process.env.NODE_ENV === "development" ? "unsafe-none" : "require-corp",
     },
   },
+
+  icon: {
+    serverBundle: "local",
+    collections: ["heroicons"],
+  },
 });

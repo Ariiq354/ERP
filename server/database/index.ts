@@ -1,5 +1,6 @@
 import { drizzle } from "drizzle-orm/libsql";
 import * as auth from "./schema/auth";
+import * as finance from "./schema/finance";
 
 export const db = drizzle({
   connection: {
@@ -7,6 +8,7 @@ export const db = drizzle({
   },
   schema: {
     ...auth,
+    ...finance,
   },
   casing: "snake_case",
 });

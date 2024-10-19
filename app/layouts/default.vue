@@ -23,11 +23,11 @@
 </script>
 
 <template>
-  <section class="flex bg-gray-200 dark:bg-gray-800">
-    <AppSidebar />
-    <div class="flex w-full flex-1 flex-col p-4">
+  <section class="flex">
+    <AppSidebar :sidebar-toggle="sidebarOpenState" />
+    <div class="ml-72 flex flex-1 flex-col overflow-auto p-8">
       <AppTopbar :logout="logout" :toggle-sidebar="toggleSidebar" />
-      <div class="p-4">
+      <div>
         <slot />
       </div>
     </div>

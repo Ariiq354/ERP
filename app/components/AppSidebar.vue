@@ -1,14 +1,46 @@
 <script setup lang="ts">
-  const route = useRoute();
+  defineProps<{
+    sidebarToggle: boolean;
+  }>();
 
   const sidebarItems = [
     {
-      title: "User",
+      title: "Dashboards",
       items: [
         {
-          title: "User",
+          title: "Home Dashboard",
           link: "/dashboard",
-          icon: "i-heroicons-user",
+          icon: "i-heroicons-home",
+        },
+      ],
+    },
+    {
+      title: "Finance",
+      items: [
+        {
+          title: "Daftar Akun",
+          link: "/dashboard/akun",
+          icon: "i-heroicons-adjustments-horizontal",
+        },
+      ],
+    },
+    {
+      title: "Pembelian",
+      items: [
+        {
+          title: "Daftar Supplier",
+          link: "/dashboard/supplier",
+          icon: "i-heroicons-building-storefront",
+        },
+        {
+          title: "Pemesanan Pembelian",
+          link: "/dashboard/pemesananPembelian",
+          icon: "i-heroicons-clipboard-document-list",
+        },
+        {
+          title: "Faktur Pembelian",
+          link: "/dashboard/fakturPembelian",
+          icon: "i-heroicons-document-chart-bar",
         },
       ],
     },
@@ -18,33 +50,20 @@
 <template>
   <div
     id="sidebar"
-    class="sticky top-0 h-screen overflow-hidden shadow-lg transition-all duration-200"
-    :class="true ? 'w-72' : 'w-0'"
+    class="fixed top-0 h-full overflow-hidden border-r border-gray-200 bg-white shadow-xl transition-all duration-200 dark:border-gray-700 dark:bg-gray-900"
+    :class="sidebarToggle ? 'w-72' : 'w-0'"
   >
-    <div
-      class="text-primary flex h-24 items-center justify-center gap-2 text-3xl font-semibold tracking-widest"
-    >
-      <UIcon name="i-heroicons-globe-alt" class="h-9 w-9" />
-      <span>Lorem</span>
-    </div>
-    <div v-for="(item, firstIndex) in sidebarItems" :key="firstIndex">
-      <h1 class="text-primary px-7 py-4 text-xs font-bold uppercase">
-        {{ item.title }}
-      </h1>
-      <div v-for="(childrenItem, secondIndex) in item.items" :key="secondIndex">
-        <NuxtLink
-          class="flex w-full items-center gap-2 px-7 py-3 text-base transition-all duration-200 hover:bg-slate-100 dark:hover:bg-gray-800/50"
-          :to="childrenItem.link"
-        >
-          <UIcon :name="childrenItem.icon" class="h-4 w-4" />
-          <p
-            class="tracking-wide"
-            :class="{ 'font-semibold': route.fullPath === childrenItem.link }"
-          >
-            {{ childrenItem.title }}
-          </p>
-        </NuxtLink>
+    <div class="text-primary flex items-center justify-center pb-8 pt-10">
+      <div class="flex items-center gap-2 text-2xl tracking-widest">
+        <UIcon name="i-heroicons-globe-alt" class="h-8 w-8" />
+        <span>LOREM</span>
       </div>
+    </div>
+    <div v-for="(firstItem, firstIndex) in sidebarItems" :key="firstIndex">
+      <h1 class="text-primary px-8 py-4 text-sm font-bold uppercase">
+        {{ firstItem.title }}
+      </h1>
+      <AppSidebarItem :link-item-prop="firstItem.items" :depth="0" />
     </div>
   </div>
 </template>

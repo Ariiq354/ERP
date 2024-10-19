@@ -1,14 +1,17 @@
 import { z } from "zod";
 
 export const loginSchema = z.object({
-  username: z.string(),
-  password: z.string().min(8, "Harus terdiri dari setidaknya 8 karakter."),
+  username: z.string().min(1, "Required"),
+  password: z
+    .string()
+    .min(1, "Required")
+    .min(8, "Harus terdiri dari setidaknya 8 karakter."),
   rememberMe: z.boolean(),
 });
 
 export const initialState = {
-  username: undefined,
-  password: undefined,
+  username: "",
+  password: "",
   rememberMe: false,
 };
 

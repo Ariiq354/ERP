@@ -23,7 +23,7 @@
     "@nuxt/ui": "^2.18.7",
     "@oslojs/crypto": "^1.0.1",
     "@oslojs/encoding": "^1.1.0",
-    "drizzle-orm": "^0.35.0",
+    "drizzle-orm": "^0.35.2",
     "nuxt": "^3.13.2",
     "nuxt-security": "^2.0.0",
     "swapy": "^0.4.2",
