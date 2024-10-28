@@ -16,6 +16,5 @@ export default defineNuxtConfig({
 
   icon: {
     serverBundle: "local",
-    collections: ["heroicons"],
   },
 });

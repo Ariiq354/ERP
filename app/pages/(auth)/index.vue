@@ -1,12 +1,12 @@
 <script setup lang="ts">
   import type { FormSubmitEvent } from "#ui/types";
-  import { type Schema, initialState, loginSchema } from "./constants";
+  import { type Schema, getInitialState, loginSchema } from "./constants";
 
   definePageMeta({
     layout: "auth",
   });
 
-  const state = ref({ ...initialState });
+  const state = ref(getInitialState());
 
   const isLoading = ref(false);
   async function onSubmit(event: FormSubmitEvent<Schema>) {

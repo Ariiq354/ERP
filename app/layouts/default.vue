@@ -25,7 +25,10 @@
 <template>
   <section class="flex">
     <AppSidebar :sidebar-toggle="sidebarOpenState" />
-    <div class="ml-72 flex flex-1 flex-col overflow-auto p-8">
+    <div
+      class="flex flex-1 flex-col overflow-auto p-8 transition-all duration-200"
+      :class="{ 'ml-72': sidebarOpenState }"
+    >
       <AppTopbar :logout="logout" :toggle-sidebar="toggleSidebar" />
       <div>
         <slot />

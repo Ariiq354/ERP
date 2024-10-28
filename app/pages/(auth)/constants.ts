@@ -9,10 +9,10 @@ export const loginSchema = z.object({
   rememberMe: z.boolean(),
 });
 
-export const initialState = {
+export const getInitialState = () => ({
   username: "",
   password: "",
   rememberMe: false,
-};
+});
 
 export type Schema = z.output<typeof loginSchema>;
