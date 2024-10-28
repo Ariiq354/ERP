@@ -6,6 +6,7 @@
 
   const user = useUser();
   const topbarTitle = useTopbarTitle();
+  const modalOpen = ref(false);
 
   const items = [
     [
@@ -14,6 +15,13 @@
         icon: "i-heroicons-arrow-left-on-rectangle",
         click: () => {
           props.logout();
+        },
+      },
+      {
+        label: "Profil",
+        icon: "i-heroicons-user",
+        click: () => {
+          modalOpen.value = true;
         },
       },
     ],
@@ -31,6 +39,7 @@
 </script>
 
 <template>
+  <ModalProfile v-model="modalOpen" />
   <div class="mb-8 flex justify-between">
     <div class="flex items-center gap-8">
       <UButton
@@ -57,7 +66,12 @@
         <UIcon v-else name="i-heroicons-sun-solid" class="h-4 w-4" />
       </UButton>
       <UDropdown :items="items">
-        <UAvatar class="bg-white" :alt="user ? user.username : 'Avatar'" />
+        <UAvatar
+          src="https://avatars.githubusercontent.com/u/739984?v=4"
+          class="bg-white"
+          crossorigin
+          :alt="user ? user.username : 'Avatar'"
+        />
       </UDropdown>
     </div>
   </div>

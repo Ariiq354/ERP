@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import type { FormSubmitEvent } from "#ui/types";
-  import { type Schema, getInitialState, loginSchema } from "./constants";
+  import { type Schema, getInitialState, loginSchema } from "./_constants";
 
   definePageMeta({
     layout: "auth",
@@ -17,39 +17,32 @@
         body: event.data,
       });
       await navigateTo("/dashboard");
+    } catch (error: any) {
+      useToastError(String(error.statusCode), error.statusMessage);
+    } finally {
       isLoading.value = false;
-    } catch (error: unknown) {
-      if (isNuxtError(error)) {
-        useToastError(String(error.statusCode), error.statusMessage);
-        isLoading.value = false;
-      }
     }
   }
 </script>
 
 <template>
   <div class="flex w-full items-center justify-center">
-    <Title>Login</Title>
+    <Title>Masuk</Title>
     <UCard class="w-full max-w-md">
       <div class="space-y-6">
-        <div class="text-center">
-          <div class="pointer-events-none mb-2">
-            <UIcon
-              name="i-heroicons-lock-closed"
-              class="h-8 w-8 flex-shrink-0 text-gray-900 dark:text-white"
-            />
-          </div>
+        <div class="flex flex-col items-center text-center">
+          <NuxtImg src="/ppg.webp" width="200" height="200" />
           <div class="text-2xl font-bold text-gray-900 dark:text-white">
-            Welcome Back!
+            Selamat Datang!
           </div>
           <div class="mt-1 text-gray-500 dark:text-gray-400">
-            Don't have an account?
+            Belum punya akun?
             <NuxtLink
               no-prefetch
               to="/register"
               class="text-primary font-medium"
             >
-              Sign Up.
+              Daftar.
             </NuxtLink>
           </div>
         </div>
@@ -64,7 +57,7 @@
             <UInput
               v-model="state.username"
               :leading="true"
-              placeholder="Enter your username"
+              placeholder="Masukkan username anda"
             />
           </UFormGroup>
 
@@ -73,18 +66,18 @@
               v-model="state.password"
               :leading="true"
               type="password"
-              placeholder="Enter your password"
+              placeholder="Masukkan kata sandi anda"
             />
           </UFormGroup>
 
-          <UCheckbox v-model="state.rememberMe" label="Remember me" />
+          <UCheckbox v-model="state.rememberMe" label="Ingat saya" />
 
           <UButton
             class="flex w-full justify-center"
             type="submit"
             :loading="isLoading"
           >
-            Continue
+            Lanjut
           </UButton>
         </UForm>
       </div>

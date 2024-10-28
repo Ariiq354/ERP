@@ -12,13 +12,11 @@
 
     try {
       await props.function();
-      loading.value = false;
       emit("success");
-    } catch (error: unknown) {
-      if (isNuxtError(error)) {
-        useToastError(String(error.statusCode), error.statusMessage);
-        loading.value = false;
-      }
+    } catch (error: any) {
+      useToastError(String(error.statusCode), error.statusMessage);
+    } finally {
+      loading.value = false;
     }
   }
 </script>

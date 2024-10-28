@@ -1,5 +1,7 @@
 <script setup lang="ts">
-  defineTopbarTitle("Home Dashboard");
+  onMounted(() => {
+    defineTopbarTitle("Home Dashboard");
+  });
 </script>
 
 <template>

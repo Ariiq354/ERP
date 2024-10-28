@@ -1,4 +1,5 @@
 import type { Session, UserLucia } from "../database/schema/auth";
+import { sessionCookieName } from "../utils/lucia";
 
 export default defineEventHandler(async (event) => {
   if (event.method !== "GET") {
@@ -15,7 +16,7 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  const sessionToken = getCookie(event, "session") ?? null;
+  const sessionToken = getCookie(event, sessionCookieName) ?? null;
   if (!sessionToken) {
     event.context.session = null;
     event.context.user = null;

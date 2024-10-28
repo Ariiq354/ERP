@@ -5,13 +5,13 @@ const deleteSchema = z.object({
 });
 
 export default defineEventHandler(async (event) => {
-  protectFunction(event);
+  adminFunction(event);
 
   const formData = await readBody(event);
 
   const res = deleteSchema.parse(formData);
 
-  await deleteAkun(res.id);
+  await deleteDesa(res.id);
 
   return;
 });

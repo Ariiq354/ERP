@@ -25,6 +25,10 @@ export async function getUserSessionById(
       user: {
         id: userTable.id,
         username: userTable.username,
+        role: userTable.role,
+        daerahId: userTable.daerahId,
+        desaId: userTable.desaId,
+        kelompokId: userTable.kelompokId,
       },
       session: sessionTable,
     })

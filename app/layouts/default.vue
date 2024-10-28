@@ -14,10 +14,8 @@
       });
       user.value = null;
       await navigateTo("/");
-    } catch (error: unknown) {
-      if (isNuxtError(error)) {
-        useToastError(String(error.statusCode), error.statusMessage);
-      }
+    } catch (error: any) {
+      useToastError(String(error.statusCode), error.statusMessage);
     }
   }
 </script>

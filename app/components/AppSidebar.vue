@@ -14,36 +14,6 @@
         },
       ],
     },
-    {
-      title: "Finance",
-      items: [
-        {
-          title: "Daftar Akun",
-          link: "/dashboard/akun",
-          icon: "i-heroicons-adjustments-horizontal",
-        },
-      ],
-    },
-    {
-      title: "Pembelian",
-      items: [
-        {
-          title: "Daftar Supplier",
-          link: "/dashboard/supplier",
-          icon: "i-heroicons-building-storefront",
-        },
-        {
-          title: "Pemesanan Pembelian",
-          link: "/dashboard/pemesananPembelian",
-          icon: "i-heroicons-clipboard-document-list",
-        },
-        {
-          title: "Faktur Pembelian",
-          link: "/dashboard/fakturPembelian",
-          icon: "i-heroicons-document-chart-bar",
-        },
-      ],
-    },
   ];
 </script>
 
@@ -56,7 +26,7 @@
     <div class="text-primary flex items-center justify-center pb-8 pt-10">
       <div class="flex items-center gap-2 text-2xl tracking-widest">
         <UIcon name="i-heroicons-globe-alt" class="h-8 w-8" />
-        <span>LOREM</span>
+        <span>PPG</span>
       </div>
     </div>
     <div v-for="(firstItem, firstIndex) in sidebarItems" :key="firstIndex">

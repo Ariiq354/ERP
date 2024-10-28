@@ -1,10 +1,6 @@
 export default eventHandler(async (event) => {
-  if (!event.context.session) {
-    throw createError({
-      statusCode: 403,
-    });
-  }
+  protectFunction(event);
 
-  await invalidateSession(event.context.session.id);
+  await invalidateSession(event.context.session!.id);
   deleteSessionTokenCookie(event);
 });
